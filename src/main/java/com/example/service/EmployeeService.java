@@ -23,7 +23,6 @@ public class EmployeeService {
         return employeeRepository.update(id, name, version+1);
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
     public long getVersion(Long id) {
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee not found"));
         return employee.getVersion();
